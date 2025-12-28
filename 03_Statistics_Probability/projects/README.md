@@ -122,6 +122,8 @@ Perform multiple hypothesis tests on real data to answer research questions.
 
 ---
 
+> **💡 Hypothesis Testing Reference**: For advanced examples of hypothesis testing techniques including ANOVA, Levene's test, Shapiro-Wilk normality test, and effect size calculations, see [`code_examples/02_hypothesis_testing_advanced.py`](../../code_examples/02_hypothesis_testing_advanced.py)
+
 ## Project 4: Regression Analysis
 
 ### Objective
