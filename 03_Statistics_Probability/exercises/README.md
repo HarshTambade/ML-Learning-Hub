@@ -99,6 +99,8 @@ Test if there's significant difference using one-way ANOVA.
 - Calculate 99% confidence interval
 - Interpret the difference
 
+> **💡 Intermediate Exercise Reference**: For detailed examples on advanced hypothesis testing techniques including ANOVA, Levene's test, Shapiro-Wilk test, and effect size calculations, see [`code_examples/02_hypothesis_testing_advanced.py`](../code_examples/02_hypothesis_testing_advanced.py)
+
 ## Advanced Exercises
 
 ### 9. Linear Regression Analysis
