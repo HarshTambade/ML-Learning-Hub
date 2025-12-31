@@ -143,3 +143,149 @@ For all projects, report:
 ✓ Document preprocessing steps
 ✓ Compare multiple models
 ✓ Interpret results in business context
+
+
+---
+
+## YouTube Resources for Each Project
+
+### Project 1: Email Spam Classification
+**Learning Resources:**
+- [Spam Classification Tutorial - Tech With Tim](https://www.youtube.com/watch?v=BLm3fJ_sBQc)
+- [NLP Text Preprocessing - StatQuest](https://www.youtube.com/watch?v=cCrZ9lQM-p4)
+- [TF-IDF Explained - Krish Naik](https://www.youtube.com/watch?v=D3wIuD5edwI)
+
+**Datasets:**
+- Enron Email Dataset: https://www.cs.cmu.edu/~enron/
+- UCI Machine Learning Repository: Spambase
+
+### Project 2: Titanic Survival Prediction
+**Learning Resources:**
+- [Titanic Dataset EDA - Data School](https://www.youtube.com/watch?v=aq8wWqArg9U)
+- [Feature Engineering - Andrew Ng](https://www.youtube.com/watch?v=gBBkfCRKf4k)
+- [Missing Data Handling - StatQuest](https://www.youtube.com/watch?v=3aRVTzJNGhc)
+
+**Datasets:**
+- Kaggle Titanic: https://www.kaggle.com/c/titanic
+- UCI Repository: https://archive.ics.uci.edu/ml/datasets/titanic
+
+### Project 3: Customer Churn Prediction
+**Learning Resources:**
+- [Churn Prediction Model - Krishnaik06](https://www.youtube.com/watch?v=xMZs3SEOQ_c)
+- [Handling Imbalanced Data - StatQuest](https://www.youtube.com/watch?v=IPkaQsYgEMU)
+- [SMOTE Technique - Krish Naik](https://www.youtube.com/watch?v=nGEZjuqbqKc)
+
+**Datasets:**
+- Telecom Churn (Kaggle): https://www.kaggle.com/datasets/blastchar/telco-customer-churn
+- IBM Telecom Customer Churn: https://www.kaggle.com/datasets/yeanzc/telco-customer-churn-ibm-dataset
+
+### Project 4: Medical Diagnosis Classification
+**Learning Resources:**
+- [Medical Diagnosis Model - Krish Naik](https://www.youtube.com/watch?v=0nnUjsnMWeY)
+- [Healthcare ML - Jeremy Howard](https://www.youtube.com/watch?v=HvQP0cq-qhQ)
+- [Sensitivity & Specificity - StatQuest](https://www.youtube.com/watch?v=BkKP7zmPGYE)
+
+**Datasets:**
+- Wisconsin Breast Cancer: https://www.kaggle.com/datasets/uciml/breast-cancer-wisconsin-data
+- Cleveland Heart Disease: https://www.kaggle.com/datasets/rishidamarla/heart-disease-prediction
+
+### Project 5: Sentiment Analysis
+**Learning Resources:**
+- [Sentiment Analysis - Krish Naik](https://www.youtube.com/watch?v=sbHWu9p3zr8)
+- [Text Classification - Andrew Ng](https://www.youtube.com/watch?v=Z7GX3b8c8ls)
+- [NLP Preprocessing - StatQuest](https://www.youtube.com/watch?v=Q7bVOaZIoC0)
+
+**Datasets:**
+- Movie Reviews: https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews
+- Product Reviews: https://www.kaggle.com/datasets/datafiniti/consumer-reviews-of-amazon-products
+
+### Project 6: Credit Risk Assessment
+**Learning Resources:**
+- [Credit Risk Model - Krish Naik](https://www.youtube.com/watch?v=h7sTKG4bKWs)
+- [Risk Modeling - Jeremy Howard](https://www.youtube.com/watch?v=hVkXRptsvb8)
+- [Feature Engineering for Risk - StatQuest](https://www.youtube.com/watch?v=5mGp_fWa5Dk)
+
+**Datasets:**
+- German Credit Data: https://www.kaggle.com/datasets/uciml/german-credit
+- Credit Card Default: https://www.kaggle.com/datasets/uciml/default-of-credit-card-clients-dataset
+
+---
+
+## Implementation Guidelines
+
+### General Workflow
+1. **Data Loading & Exploration (2-3 hours)**
+   - Load dataset
+   - Exploratory data analysis
+   - Identify missing values
+   - Check class imbalance
+
+2. **Data Preprocessing (3-4 hours)**
+   - Handle missing values
+   - Encode categorical variables
+   - Scale numerical features
+   - Split train/test sets
+
+3. **Model Training (2-3 hours)**
+   - Train logistic regression baseline
+   - Try different regularization (L1, L2)
+   - Tune hyperparameters
+   - Evaluate with CV
+
+4. **Model Evaluation (2-3 hours)**
+   - Generate confusion matrix
+   - Calculate all metrics
+   - Plot ROC curve
+   - Create performance report
+
+5. **Interpretation & Insights (2-3 hours)**
+   - Analyze feature importance
+   - Identify key drivers
+   - Generate business insights
+   - Document findings
+
+### Total Time per Project: 12-18 hours
+
+---
+
+## Difficulty Levels
+
+| Project | Level | Prerequisites |
+|---------|-------|----------------|
+| Email Spam | ⭐⭐⭐ | NLP Basics, Text Processing |
+| Titanic | ⭐⭐ | Data Preprocessing, EDA |
+| Churn | ⭐⭐⭐ | Imbalanced Data, Class Weights |
+| Medical Diagnosis | ⭐⭐⭐⭐ | Medical Domain Knowledge |
+| Sentiment Analysis | ⭐⭐⭐ | NLP, Feature Extraction |
+| Credit Risk | ⭐⭐⭐⭐ | Financial Concepts, Feature Engineering |
+
+---
+
+## Performance Targets
+
+Target accuracies for each project:
+- **Email Spam**: > 95% (critical for business)
+- **Titanic**: > 82% (Kaggle leaderboard)
+- **Customer Churn**: > 80% (with recall > 75%)
+- **Medical Diagnosis**: > 90% (with sensitivity > 95%)
+- **Sentiment Analysis**: > 85% (accuracy)
+- **Credit Risk**: > 75% (with high recall for defaults)
+
+---
+
+## Submission Checklist
+
+☐ Dataset loaded and explored
+☐ Missing values handled
+☐ Features engineered and scaled
+☐ Train/test split done
+☐ Baseline model trained
+☐ Hyperparameters tuned
+☐ All evaluation metrics calculated
+☐ ROC curve plotted
+☐ Feature importance analyzed
+☐ Results documented
+☐ Code commented and organized
+☐ README with findings written
+
+Happy coding and learning!
