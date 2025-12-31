@@ -129,3 +129,59 @@ def sigmoid(z):
 ## Solutions
 
 Refer to code_examples/ folder for complete implementations of these exercises.
+
+---
+
+## YouTube Resources for Each Exercise
+
+### Exercise 1: Sigmoid Function
+- **StatQuest - Sigmoid/Logistic Function**: https://www.youtube.com/watch?v=BYVeaYMps6s
+- **3Blue1Brown - Neural Networks**: https://www.youtube.com/watch?v=aircArM63ks
+
+### Exercise 2: Cost Function
+- **StatQuest - Cross Entropy**: https://www.youtube.com/watch?v=6ArSQqfAYL4
+- **Andrew Ng - Cost Function**: https://www.youtube.com/watch?v=0nnUjsnMWeY
+
+### Exercise 3: Gradient Descent
+- **StatQuest - Gradient Descent**: https://www.youtube.com/watch?v=sDv4f4s2SB8
+- **Andrew Ng - Gradient Descent**: https://www.youtube.com/watch?v=X1E7I7_r-9g
+
+### Exercise 4: Feature Scaling
+- **Deeplearning.AI - Feature Scaling**: https://www.youtube.com/watch?v=bvR5m0nKUKU
+- **Andrew Ng - Scaling Features**: https://www.youtube.com/watch?v=l3MxXZFoX1c
+
+### Exercise 5: Regularization
+- **StatQuest - Regularization**: https://www.youtube.com/watch?v=QL3gZajWfAY
+- **Andrew Ng - Regularization**: https://www.youtube.com/watch?v=gBBkfCRKf4k
+
+### Exercise 6: Decision Boundaries
+- **StatQuest - Decision Trees**: https://www.youtube.com/watch?v=7VeUAPqLfQI
+- **Jeremy Howard - Decision Boundaries**: https://www.youtube.com/watch?v=e2Uh7Rjv5YU
+
+### Exercise 7: Multiclass Classification
+- **StatQuest - Multi-class Logistic Regression**: https://www.youtube.com/watch?v=t0tI3S3cHeI
+- **Andrew Ng - Softmax**: https://www.youtube.com/watch?v=hVkXRptsvb8
+
+### Exercise 8: ROC Curves
+- **StatQuest - ROC Curves**: https://www.youtube.com/watch?v=4jRBRDbJemM
+- **Gopal Malakar - ROC AUC**: https://www.youtube.com/watch?v=4sDD3Z3bwKc
+
+### Exercise 9: Cross-Validation
+- **StatQuest - Cross Validation**: https://www.youtube.com/watch?v=fSytzGwwrhI
+- **Gopal Malakar - K-Fold CV**: https://www.youtube.com/watch?v=b0VfKvJ45eQ
+
+### Exercise 10: Hyperparameter Tuning
+- **StatQuest - GridSearchCV**: https://www.youtube.com/watch?v=6dbrR-WymwM
+- **Jeremy Howard - Hyperparameter Optimization**: https://www.youtube.com/watch?v=0ysqq24a1Jw
+
+---
+
+## Learning Path
+
+**Recommended Order**: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 10
+
+**Time Estimate**: 10-15 hours for all exercises
+
+**Difficulty**: ⭐⭐⭐ Intermediate
+
+Refer to code_examples/ folder for complete implementations of these exercises.
