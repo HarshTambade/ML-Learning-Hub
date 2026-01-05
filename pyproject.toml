@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mllearner"
+version = "0.1.0"
+description = "A comprehensive ML package for learners - providing utilities for data preprocessing, model building, training, and evaluation"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [{name = "Harsh Tambade", email = "harsh@example.com"}]
+keywords = ["machine-learning", "data-science", "ml-framework", "learning"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries",
+]
+
+dependencies = [
+    "numpy>=1.21.0",
+    "pandas>=1.3.0",
+    "scikit-learn>=1.0.0",
+    "matplotlib>=3.4.0",
+    "seaborn>=0.11.0",
+]
+
+[project.optional-dependencies]
+ml-extra = [
+    "tensorflow>=2.10.0",
+    "torch>=1.12.0",
+    "xgboost>=1.7.0",
+    "lightgbm>=3.3.0",
+]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=3.0",
+    "black>=22.0",
+    "flake8>=4.0",
+    "mypy>=0.950",
+]
+
+[project.urls]
+Homepage = "https://github.com/HarshTambade/ML-Learning-Hub"
+Documentation = "https://github.com/HarshTambade/ML-Learning-Hub/wiki"
+Repository = "https://github.com/HarshTambade/ML-Learning-Hub"
+Issues = "https://github.com/HarshTambade/ML-Learning-Hub/issues"
+
+[tool.setuptools]
+packages = ["mllearner"]
+
+[tool.black]
+line-length = 88
+target-version = ["py38", "py39", "py310", "py311"]
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
