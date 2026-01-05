@@ -1,0 +1,36 @@
+name: Publish to GitHub Packages
+
+on:
+  release:
+    types: [created, published]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install build twine
+    
+    - name: Build distribution
+      run: python -m build
+    
+    - name: Publish to GitHub Packages
+      run: |
+        python -m twine upload dist/* \
+          --repository-url https://pypi.pkg.github.com/HarshTambade/ml-learning-hub \
+          -u __token__ \
+          -p ${{ secrets.GITHUB_TOKEN }} \
+          --skip-existing
