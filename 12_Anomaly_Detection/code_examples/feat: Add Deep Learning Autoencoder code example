@@ -1,0 +1,146 @@
+05_deep_learning_autoencoder.py"""Deep Learning Autoencoder - Neural Network Approach
+
+Autoencoders learn to reconstruct normal data. High reconstruction error
+indicates anomalies. This approach captures complex patterns in data.
+"""
+
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import mean_squared_error
+
+try:
+    from tensorflow import keras
+    from tensorflow.keras import layers
+    TENSORFLOW_AVAILABLE = True
+except ImportError:
+    TENSORFLOW_AVAILABLE = False
+    print("TensorFlow not available. Install with: pip install tensorflow")
+
+def generate_data(n_samples=1000, contamination=0.1, n_features=20, random_state=42):
+    """Generate synthetic data with anomalies"""
+    np.random.seed(random_state)
+    n_normal = int(n_samples * (1 - contamination))
+    
+    # Normal data
+    X_normal = np.random.randn(n_normal, n_features) * 0.5
+    # Anomalies
+    X_anomalies = np.random.uniform(-3, 3, (n_samples - n_normal, n_features))
+    
+    X = np.vstack([X_normal, X_anomalies])
+    y = np.hstack([np.zeros(n_normal), np.ones(n_samples - n_normal)])
+    
+    idx = np.random.permutation(n_samples)
+    return X[idx], y[idx]
+
+def build_autoencoder(input_dim, encoding_dim=8):
+    """Build autoencoder model"""
+    # Encoder
+    encoder_input = keras.Input(shape=(input_dim,))
+    encoded = layers.Dense(16, activation='relu')(encoder_input)
+    encoded = layers.Dense(encoding_dim, activation='relu')(encoded)
+    
+    # Decoder
+    decoded = layers.Dense(16, activation='relu')(encoded)
+    decoded = layers.Dense(input_dim, activation='linear')(decoded)
+    
+    # Autoencoder
+    autoencoder = keras.Model(encoder_input, decoded)
+    autoencoder.compile(optimizer='adam', loss='mse')
+    
+    return autoencoder
+
+def train_autoencoder(X_train, epochs=50, batch_size=32):
+    """Train autoencoder"""
+    autoencoder = build_autoencoder(X_train.shape[1], encoding_dim=8)
+    history = autoencoder.fit(
+        X_train, X_train,
+        epochs=epochs,
+        batch_size=batch_size,
+        validation_split=0.1,
+        verbose=0
+    )
+    return autoencoder, history
+
+def detect_anomalies(autoencoder, X, threshold=None):
+    """Detect anomalies using reconstruction error"""
+    X_pred = autoencoder.predict(X, verbose=0)
+    mse = np.mean(np.square(X - X_pred), axis=1)
+    
+    if threshold is None:
+        threshold = np.percentile(mse, 90)
+    
+    return (mse > threshold).astype(int), mse
+
+def evaluate_autoencoder(y_true, y_pred):
+    """Evaluate autoencoder performance"""
+    tp = np.sum((y_true == 1) & (y_pred == 1))
+    fp = np.sum((y_true == 0) & (y_pred == 1))
+    fn = np.sum((y_true == 1) & (y_pred == 0))
+    
+    precision = tp / (tp + fp) if (tp + fp) > 0 else 0
+    recall = tp / (tp + fn) if (tp + fn) > 0 else 0
+    f1 = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
+    
+    print("\n=== Autoencoder Results ===")
+    print(f"Precision: {precision:.3f}")
+    print(f"Recall: {recall:.3f}")
+    print(f"F1-Score: {f1:.3f}")
+
+def main():
+    print("="*60)
+    print("Deep Learning Autoencoder - Anomaly Detection")
+    print("="*60)
+    
+    if not TENSORFLOW_AVAILABLE:
+        print("TensorFlow is required for this example.")
+        print("Install with: pip install tensorflow")
+        return
+    
+    # Generate data
+    X, y = generate_data(n_samples=1000, contamination=0.1, n_features=20)
+    
+    # Standardize
+    scaler = StandardScaler()
+    X = scaler.fit_transform(X)
+    
+    # Train autoencoder
+    print("\nTraining autoencoder...")
+    autoencoder, history = train_autoencoder(X, epochs=50, batch_size=32)
+    
+    # Detect anomalies
+    print("Detecting anomalies...")
+    y_pred, reconstruction_errors = detect_anomalies(autoencoder, X)
+    
+    # Evaluate
+    evaluate_autoencoder(y, y_pred)
+    
+    # Visualization
+    fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+    
+    # Training history
+    axes[0].plot(history.history['loss'], label='Training Loss')
+    axes[0].plot(history.history['val_loss'], label='Validation Loss')
+    axes[0].set_xlabel('Epoch')
+    axes[0].set_ylabel('Loss')
+    axes[0].set_title('Autoencoder Training History')
+    axes[0].legend()
+    
+    # Reconstruction error distribution
+    normal_errors = reconstruction_errors[y == 0]
+    anomaly_errors = reconstruction_errors[y == 1]
+    axes[1].hist(normal_errors, bins=30, alpha=0.7, label='Normal', color='blue')
+    axes[1].hist(anomaly_errors, bins=30, alpha=0.7, label='Anomaly', color='red')
+    axes[1].set_xlabel('Reconstruction Error')
+    axes[1].set_ylabel('Frequency')
+    axes[1].set_title('Reconstruction Error Distribution')
+    axes[1].legend()
+    
+    plt.tight_layout()
+    plt.savefig('autoencoder_results.png', dpi=100)
+    plt.show()
+    
+    print("\n" + "="*60)
+
+if __name__ == "__main__":
+    main()
