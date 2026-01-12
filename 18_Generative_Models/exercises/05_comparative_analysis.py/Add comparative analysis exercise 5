@@ -1,0 +1,54 @@
+"""Exercise 5: Comparative Analysis of Generative Models
+Compare VAE, GAN, and Diffusion on MNIST
+
+TODO:
+1. Implement evaluation metrics (FID, IS, Reconstruction Error)
+2. Train all three models
+3. Compare sample quality, training stability, generation speed
+4. Create comparison visualizations
+5. Write analysis report
+"""
+
+import torch
+import numpy as np
+from torchvision import datasets, transforms
+import matplotlib.pyplot as plt
+
+class ModelEvaluator:
+    def __init__(self):
+        # TODO: Initialize evaluation metrics
+        pass
+    
+    def compute_fid(self, real_images, generated_images):
+        # TODO: Compute Frechet Inception Distance
+        pass
+    
+    def compute_inception_score(self, generated_images):
+        # TODO: Compute Inception Score
+        pass
+    
+    def compute_reconstruction_error(self, original, reconstructed):
+        # TODO: Compute L2 reconstruction error
+        pass
+
+def compare_models():
+    # TODO: Load MNIST
+    # TODO: Train VAE, GAN, Diffusion
+    # TODO: Generate samples from each model
+    # TODO: Compute metrics for each
+    # TODO: Create comparison table
+    # TODO: Plot sample quality comparisons
+    pass
+
+def analyze_tradeoffs():
+    """Analyze quality vs speed tradeoffs"""
+    # TODO: Compare training time
+    # TODO: Compare inference time
+    # TODO: Compare memory usage
+    # TODO: Create comparison charts
+    pass
+
+if __name__ == "__main__":
+    compare_models()
+    analyze_tradeoffs()
+    print("Comparative analysis complete!")
