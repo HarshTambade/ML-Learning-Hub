@@ -1,0 +1,37 @@
+"""Exercise 3: Build and train a VAE
+TODO: Encoder with reparameterization, Decoder, ELBO loss"""
+import torch
+import torch.nn as nn
+
+class VAE(nn.Module):
+    def __init__(self, input_dim=784, hidden_dim=256, latent_dim=20):
+        super().__init__()
+        # TODO: Encoder q(z|x)
+        # TODO: Decoder p(x|z)
+        pass
+    
+    def encode(self, x):
+        # TODO: Return mu, logvar
+        pass
+    
+    def reparameterize(self, mu, logvar):
+        # TODO: Sample z = mu + std * epsilon
+        pass
+    
+    def decode(self, z):
+        # TODO: Return x_recon
+        pass
+    
+    def forward(self, x):
+        mu, logvar = self.encode(x)
+        z = self.reparameterize(mu, logvar)
+        x_recon = self.decode(z)
+        return x_recon, mu, logvar
+    
+    def vae_loss(self, x_recon, x, mu, logvar):
+        # TODO: ELBO = -E[log p(x|z)] + KL(q||p)
+        pass
+
+if __name__ == "__main__":
+    # TODO: Train VAE on MNIST
+    pass
