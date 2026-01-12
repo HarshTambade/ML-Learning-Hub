@@ -1,0 +1,43 @@
+"""Exercise 4: Implement Diffusion Model
+TODO: Noise schedule, forward diffusion, reverse process, training"""
+import torch
+import torch.nn as nn
+import math
+
+class DiffusionModel(nn.Module):
+    def __init__(self, model, timesteps=1000):
+        super().__init__()
+        self.model = model
+        self.timesteps = timesteps
+        
+        # TODO: Define noise schedule (linear beta schedule)
+        # beta_t from beta_start to beta_end
+        self.betas = torch.linspace(0.0001, 0.02, timesteps)
+        
+        # TODO: Compute alphas and alpha_bar
+        # alpha_t = 1 - beta_t
+        # alpha_bar_t = product of alphas
+        pass
+    
+    def forward_diffusion(self, x0, t):
+        # TODO: Add noise to x0 at timestep t
+        # x_t = sqrt(alpha_bar_t) * x0 + sqrt(1 - alpha_bar_t) * epsilon
+        pass
+    
+    def reverse_process(self, xt, t, noise_pred):
+        # TODO: Denoise using predicted noise
+        # x_{t-1} = (1/sqrt(alpha_t)) * (x_t - noise_pred * sqrt(1-alpha_t))
+        pass
+    
+    def training_loss(self, x0, t):
+        # TODO: Compute MSE loss between predicted and actual noise
+        pass
+    
+    def sample(self, shape, num_steps=None):
+        # TODO: Sample from noise using reverse process
+        pass
+
+if __name__ == "__main__":
+    # TODO: Train diffusion model on MNIST
+    # TODO: Sample new images
+    pass
