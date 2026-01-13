@@ -1,0 +1,160 @@
+# 19. Natural Language Processing (NLP)
+
+## Comprehensive Guide to NLP and Language Models
+
+This chapter covers fundamental concepts and advanced techniques in Natural Language Processing, including text preprocessing, embeddings, sequence models, and transformer-based architectures.
+
+## Folder Structure
+
+```
+19_NLP/
+├── code_examples/          # Practical implementations (8 files)
+│   ├── 01_text_preprocessing.py
+│   ├── 02_tfidf_embeddings.py
+│   ├── 03_word2vec.py
+│   ├── 04_sentiment_analysis.py
+│   ├── 05_named_entity_recognition.py
+│   ├── 06_sequence_models.py
+│   ├── 07_transformers_basics.py
+│   └── 08_bert_fine_tuning.py
+├── exercises/              # Learning exercises (5 files)
+│   ├── 01_text_preprocessing_exercise.py
+│   ├── 02_text_classification.py
+│   ├── 03_embeddings_exercise.py
+│   ├── 04_sentiment_analysis_exercise.py
+│   └── 05_transformer_exercise.py
+├── notes/                  # Detailed theoretical notes (6 files)
+│   ├── 01_nlp_fundamentals.md
+│   ├── 02_text_representation.md
+│   ├── 03_embeddings_and_word2vec.md
+│   ├── 04_sequence_models_rnn_lstm.md
+│   ├── 05_attention_transformers.md
+│   └── 06_bert_and_pretraining.md
+├── projects/               # Real-world applications (3 files)
+│   ├── 01_sentiment_classification_project.py
+│   ├── 02_machine_translation_project.py
+│   └── 03_question_answering_project.py
+└── README.md               # This file
+```
+
+## Topics Covered
+
+### Text Preprocessing
+- Tokenization
+- Lowercasing and cleaning
+- Stemming and lemmatization
+- Stop word removal
+
+### Text Representation
+- Bag of Words (BoW)
+- TF-IDF
+- One-hot encoding
+- Word Embeddings (Word2Vec, GloVe)
+
+### Sequence Models
+- Recurrent Neural Networks (RNN)
+- Long Short-Term Memory (LSTM)
+- Gated Recurrent Units (GRU)
+- Bidirectional models
+
+### Attention and Transformers
+- Attention mechanism
+- Self-attention
+- Transformer architecture
+- Multi-head attention
+
+### Pre-trained Models
+- BERT
+- GPT
+- RoBERTa
+- Fine-tuning strategies
+
+### NLP Tasks
+- Sentiment analysis
+- Named Entity Recognition (NER)
+- Text classification
+- Machine translation
+- Question answering
+- Text summarization
+
+## Key Libraries
+
+- **NLTK**: Natural Language Toolkit
+- **spaCy**: Industrial-strength NLP
+- **TextBlob**: Simple text processing
+- **Gensim**: Word embeddings and topic modeling
+- **PyTorch**: Deep learning framework
+- **Transformers**: Hugging Face library
+- **BERT, GPT, RoBERTa**: Pre-trained models
+
+## Learning Path
+
+1. Start with NLP fundamentals and text preprocessing
+2. Learn text representation methods (TF-IDF, embeddings)
+3. Understand sequence models (RNN, LSTM)
+4. Study attention mechanism and transformers
+5. Fine-tune pre-trained models (BERT)
+6. Work on real-world NLP projects
+
+## Quick Start
+
+### Text Preprocessing
+```python
+import nltk
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+
+text = "Natural Language Processing is awesome!"
+tokens = word_tokenize(text.lower())
+stop_words = set(stopwords.words('english'))
+filtered = [w for w in tokens if w.isalnum() and w not in stop_words]
+print(filtered)  # ['natural', 'language', 'processing', 'awesome']
+```
+
+### TF-IDF
+```python
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+vecp = TfidfVectorizer()
+X = vecp.fit_transform(['hello world', 'world peace'])
+print(X.toarray())
+```
+
+### Word2Vec
+```python
+from gensim.models import Word2Vec
+
+sentences = [['hello', 'world'], ['natural', 'language']]
+model = Word2Vec(sentences, min_count=1)
+print(model.wv['hello'])  # word vector
+```
+
+### BERT Classification
+```python
+from transformers import pipeline
+
+classifier = pipeline('sentiment-analysis')
+result = classifier("I love this movie!")
+print(result)  # [{'label': 'POSITIVE', 'score': 0.99...}]
+```
+
+## Evaluation Metrics
+
+- **Accuracy**: Correct predictions / total
+- **Precision/Recall**: TP / (TP + FP), TP / (TP + FN)
+- **F1-Score**: Harmonic mean of precision and recall
+- **BLEU**: Machine translation quality
+- **ROUGE**: Summarization quality
+- **Perplexity**: Language model quality
+
+## Resources
+
+- [NLTK Documentation](https://www.nltk.org/)
+- [spaCy Documentation](https://spacy.io/)
+- [Hugging Face Transformers](https://huggingface.co/transformers/)
+- [Gensim Word2Vec](https://radimrehurek.com/gensim/)
+- [Stanford NLP](https://nlp.stanford.edu/)
+
+## Contributing
+
+Feel free to add more examples, exercises, and projects to enhance the learning experience!
